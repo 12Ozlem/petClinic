@@ -59,6 +59,5 @@
   <scm>
     <connection>scm:git:http://${12Ozlem}:${Mustafa123_}@github.com/12Ozlem/petClinic.git</connection>
     <url>https://github.com/12Ozlem/petClinic.git</url>
-    <tag>petClinic-0.0.1</tag>
 </scm>
 </project>
