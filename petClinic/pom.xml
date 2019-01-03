@@ -55,7 +55,7 @@
 	</modules>
 	
 	    <scm>
-        <developerConnection>scm:git:git@github.com:12Ozlem/petClinic.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/12Ozlem/petClinic.git</developerConnection>
       <tag>petClinic-0.0.1</tag>
   </scm>
 </project>
