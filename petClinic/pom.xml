@@ -54,8 +54,11 @@
 		<module>pet-clinic-data</module>
 	</modules>
 	
-	    <scm>
-        <developerConnection>scm:git:https://github.com/12Ozlem/petClinic.git</developerConnection>
-      <tag>petClinic-0.0.1</tag>
-  </scm>
+
+  
+  <scm>
+    <connection>scm:git:http://${12Ozlem}:${Mustafa123_}@github.com/12Ozlem/petClinic.git</connection>
+    <url>https://github.com/12Ozlem/petClinic.git</url>
+    <tag>HEAD</tag>
+</scm>
 </project>
