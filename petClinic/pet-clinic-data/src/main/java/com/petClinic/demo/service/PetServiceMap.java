@@ -1,17 +1,19 @@
-package com.petclinic.service;
+package com.petClinic.demo.service;
 
 import java.util.Set;
 
-import com.petclinic.model.Pet;
+import org.springframework.stereotype.Service;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+import com.petClinic.demo.model.Pet;
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
 	public void deleteById(Long id)
 	{
 		super.deleteByID(id);
 	}
 	public Pet save(Pet Pet) {
-		return super.save(Pet.getId(), Pet);
+		return super.save(Pet);
 		
 	}
 	public Pet findById(Long id) {

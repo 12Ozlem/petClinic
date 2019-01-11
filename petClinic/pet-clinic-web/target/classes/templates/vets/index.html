@@ -5,7 +5,21 @@
 	<title>List of Vets</title>
 </head>
 <body>
-	<h1 th:text="'List of Vets'">List of Vets</h1>
-	
+<body>
+<table border="1" style="width:600px">
+<thead>
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    </thead>
+    <tr th:each="vet : ${vets}">
+        	<td><p th:text="${vet.id}">ID</p></td>
+        	<td><p th:text="${vet.firstName}">First Name</p></td>
+        	<td><p th:text="${vet.lastName}">Last Name</p></td>
+    </tr>
+</table>
 </body>
+
 </html>
