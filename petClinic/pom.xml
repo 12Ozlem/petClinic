@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -16,7 +18,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+
 	</properties>
+
+
 
 	<dependencies>
 		<dependency>
@@ -29,6 +34,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -43,12 +50,14 @@
 				<configuration>
 					<goals>install</goals>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					   <checkModificationExcludes>
-        					<checkModificationExclude>pom.xml</checkModificationExclude>
-        					<checkModificationExclude>**</checkModificationExclude>
-    					</checkModificationExcludes>
+					<checkModificationExcludes>
+						<checkModificationExclude>pom.xml</checkModificationExclude>
+						<checkModificationExclude>**</checkModificationExclude>
+					</checkModificationExcludes>
 				</configuration>
 			</plugin>
+
+
 		</plugins>
 
 	</build>
@@ -57,13 +66,13 @@
 		<module>pet-clinic-web</module>
 		<module>pet-clinic-data</module>
 	</modules>
-	
 
-  
-  <scm>
-    <connection>scm:git:http://12Ozlem:Mustafa123_@github.com/12Ozlem/petClinic.git</connection>
-    <developerConnection>scm:git:http://12Ozlem:Mustafa123_@github.com/12Ozlem/petClinic.git</developerConnection>
-    <url>https://github.com/12Ozlem/petClinic.git</url>
-  <tag>HEAD</tag>
-  </scm>
+
+
+	<scm>
+		<connection>scm:git:http://OzlemDoganGitPortfolio:Mustafa123_@github.com/12Ozlem/petClinic.git</connection>
+		<developerConnection>scm:git:http://OzlemDoganGitPortfolio:Mustafa123_@github.com/12Ozlem/petClinic.git</developerConnection>
+		<url>https://github.com/OzlemDoganGitPortfolio/petClinic.git</url>
+		<tag>HEAD</tag>
+	</scm>
 </project>
