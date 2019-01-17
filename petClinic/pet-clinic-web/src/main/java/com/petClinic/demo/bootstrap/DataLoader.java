@@ -1,6 +1,7 @@
 package com.petClinic.demo.bootstrap;
 
 import java.time.LocalDate;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,97 +10,126 @@ import org.springframework.stereotype.Component;
 import com.petClinic.demo.model.Owner;
 import com.petClinic.demo.model.Pet;
 import com.petClinic.demo.model.PetType;
+import com.petClinic.demo.model.Speciality;
 import com.petClinic.demo.model.Vet;
 import com.petClinic.demo.service.OwnerService;
+import com.petClinic.demo.service.PetService;
 import com.petClinic.demo.service.PetTypeService;
+import com.petClinic.demo.service.SpecialitiesService;
 import com.petClinic.demo.service.VetService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
-	
-	private final OwnerService ownerService;
-	private final VetService vetService;
-	private final PetTypeService petTypeService;
-	
-	/*
-	public DataLoader() {
 
-		ownerService = new ownerServiceMap();
-		vetService = new vetServiceMap();
-	}
-	*/
+	private final OwnerService ownerServiceB;
+	private final VetService vetServiceB;
+	private final PetTypeService petTypeServiceB;
+	private final SpecialitiesService specialitiesServiceB;
+	private final PetService petServiceB;
+	
+	Logger logger = Logger.getLogger(DataLoader.class.getName());
+
+	/*
+	 * public DataLoader() {
+	 * 
+	 * ownerService = new ownerServiceMap(); vetService = new vetServiceMap(); }
+	 */
 	@Autowired
-	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
-		this.ownerService = ownerService;
-		this.vetService = vetService;
-		this.petTypeService = petTypeService;
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+			SpecialitiesService specialitiesService, PetService petService) {
+		this.ownerServiceB = ownerService;
+		this.vetServiceB = vetService;
+		this.petTypeServiceB = petTypeService;
+		this.specialitiesServiceB = specialitiesService;
+		this.petServiceB = petService;
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+
+		loadData();
+
+	}
+
+	private void loadData() {
 		PetType dog = new PetType();
 		dog.setName("dog");
-		PetType saveddDogPetType = petTypeService.save(dog);
-		
+		PetType savedDogPetType = petTypeServiceB.save(dog);
+		logger.info("EMRE "+savedDogPetType);
+
 		PetType cat = new PetType();
 		cat.setName("cat");
-		PetType savedCatPetType = petTypeService.save(cat);
-		
-		Owner owner = new Owner();
-		owner.setFirstName("Ozlem");
-		owner.setLastName("Dogan");
-		owner.setAddress("Uskudar");
-		owner.setCity("İstanbul");
-		owner.setTelephone("1234");
+		PetType savedCatPetType = petTypeServiceB.save(cat);
+		logger.info("EMRE "+savedCatPetType);
 
+		Speciality radiologist = new Speciality();
+		radiologist.setDescription("radiologist");
+		specialitiesServiceB.save(radiologist);
+
+		Speciality surgery = new Speciality();
+		surgery.setDescription("surgery");
+		specialitiesServiceB.save(surgery);
+
+		Speciality dentistry = new Speciality();
+		dentistry.setDescription("dentistry");
+		specialitiesServiceB.save(dentistry);
+		
+
+
+		Owner ozlem = new Owner();
+		ozlem.setFirstName("Ozlem");
+		ozlem.setLastName("Dogan");
+		ozlem.setAddress("Uskudar");
+		ozlem.setCity("İstanbul");
+		ozlem.setTelephone("1234");
+		// owner.setId(1L);
+		
 		Pet ozlemsPet = new Pet();
+		ozlemsPet.setPetType(savedDogPetType);
 		ozlemsPet.setBirthDate(LocalDate.now());
-		ozlemsPet.setOwner(owner);
-		ozlemsPet.setPetType(saveddDogPetType);
+		ozlemsPet.setOwner(ozlem);
 		ozlemsPet.setName("Funky");
-		//owner.setId(1L);
-		
-		owner.getPets().add(ozlemsPet);
-		
-		ownerService.save(owner);
-		
-		Owner owner2 = new Owner();
-		owner2.setFirstName("Fiona");
-		owner2.setLastName("Dogan");
-		owner.setAddress("Uskudar");
-		owner.setCity("İstanbul");
-		owner.setTelephone("1234");
-		owner.setPets(null);
-		//owner2.setId(2L);
-		
-		
-		ownerService.save(owner2);
-		
+		Pet savedOzlemsPet = petServiceB.save(ozlemsPet);
+
+		ozlem.getPets().add(savedOzlemsPet);
+
+		ownerServiceB.save(ozlem);
+
+		Owner fiona = new Owner();
+		fiona.setFirstName("Fiona");
+		fiona.setLastName("Dogan");
+		fiona.setAddress("Uskudar");
+		fiona.setCity("İstanbul");
+		fiona.setTelephone("1234");
+
+		// owner2.setId(2L);
+
 		Pet fionasPet = new Pet();
-		fionasPet.setBirthDate(LocalDate.now());
-		fionasPet.setOwner(owner2);
 		fionasPet.setPetType(savedCatPetType);
+		fionasPet.setBirthDate(LocalDate.now());
+		fionasPet.setOwner(fiona);		
 		fionasPet.setName("Shrinky");
+		Pet savedFionasPet = petServiceB.save(fionasPet);
 		
-		owner2.getPets().add(fionasPet);
-		
-		Vet vet = new Vet();
-		vet.setFirstName("Emre");
-		vet.setLastName("Doğan");
-		//vet.setId(1L);
-		
-		vetService.save(vet);
-		
-		
-		Vet vet2 = new Vet();
-		vet2.setFirstName("Emir Mete");
-		vet2.setLastName("Doğan");
-		//vet2.setId(2L);
-		
-		vetService.save(vet2);
-		
-		
+		fiona.getPets().add(savedFionasPet);
+
+		ownerServiceB.save(fiona);
+
+		Vet emre = new Vet();
+		emre.setFirstName("Emre");
+		emre.setLastName("Doğan");
+		// vet.setId(1L);
+		emre.getSpec().add(radiologist);
+		vetServiceB.save(emre);
+
+		Vet emirMete = new Vet();
+		emirMete.setFirstName("Emir Mete");
+		emirMete.setLastName("Doğan");
+		// vet2.setId(2L);
+		emirMete.getSpec().add(surgery);
+		emirMete.getSpec().add(dentistry);
+
+		vetServiceB.save(emirMete);
 	}
 
 }

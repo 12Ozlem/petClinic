@@ -12,7 +12,6 @@ public class Vet extends Person {
 	}
 
 	public Vet(Set<Speciality> spec) {
-		super();
 		this.spec = spec;
 	}
 

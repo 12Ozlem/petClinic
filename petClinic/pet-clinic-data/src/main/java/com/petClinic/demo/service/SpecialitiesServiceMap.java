@@ -2,11 +2,13 @@ package com.petClinic.demo.service;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.petClinic.demo.model.Speciality;
 
 @Service
+@Qualifier("specialitiesServiceMap")
 public class SpecialitiesServiceMap extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
 
 	@Override

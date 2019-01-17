@@ -1,6 +1,7 @@
 package com.petClinic.demo.service;
 
 import java.util.Set;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,8 +14,9 @@ import com.petClinic.demo.model.Pet;
 @Qualifier("ownerServiceMap")
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
 	
-	private PetTypeService petTypeService;
-	private PetService pertService;	
+	Logger logger = Logger.getLogger(OwnerServiceMap.class.getName());
+	private final PetTypeService petTypeService;
+	private final PetService pertService;	
 
 	@Autowired
 	public OwnerServiceMap(PetTypeService petTypeService, PetService pertService) {
@@ -29,10 +31,15 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 		
 		if (owner != null)
 		{
+			logger.info("OZLEM"+owner.getFirstName());
 			if (owner.getPets()!=null)
 			{
-				owner.getPets().forEach(pet->
+				logger.info("OZLEM"+owner.getPets().toString());
+				
+				owner.getPets().forEach(pet ->
 				{
+					logger.info("OZLEM"+pet.getName());
+					logger.info("OZLEM"+pet.getPetType());
 					if(pet.getPetType()!=null)
 					{
 						if (pet.getPetType().getId() == null)

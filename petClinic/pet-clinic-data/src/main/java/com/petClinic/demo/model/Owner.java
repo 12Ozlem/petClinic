@@ -13,12 +13,17 @@ public class Owner extends Person {
 	
 	public Owner() {
 	}
-
-
-	public Owner(Set<Pet> pets) {
-		this.pets = pets;
-	}
+		
 	
+	public Owner(Set<Pet> pets, String address, String city, String telephone) {
+		this.pets = pets;
+		this.address = address;
+		this.city = city;
+		this.telephone = telephone;
+	}
+
+
+
 	public String getAddress() {
 		return address;
 	}

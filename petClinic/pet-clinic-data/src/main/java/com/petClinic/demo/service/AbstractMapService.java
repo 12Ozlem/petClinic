@@ -7,12 +7,14 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import com.petClinic.demo.model.BaseEntity;
 
 public class AbstractMapService<T extends BaseEntity, ID extends Long> {
 	
 	protected Map<Long, T> map = new HashMap<>();
+	Logger logger = Logger.getLogger(AbstractMapService.class.getName());
 	
 	Set<T> findAll()
 	{
@@ -29,12 +31,14 @@ public class AbstractMapService<T extends BaseEntity, ID extends Long> {
 			if (object.getId() == null) {
 				object.setId(getNextId(object));
 			}
+			map.put(object.getId(), object);
 		}
 		else
 		{
 			throw new RuntimeException("Object can not be null");
 		}
-		return map.put(object.getId(), object);
+		logger.info("EMRE Object saved in Abstact Class");
+		return object;
 	}
 	
 	
