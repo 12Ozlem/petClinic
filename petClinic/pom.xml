@@ -70,9 +70,9 @@
 
 
 	<scm>
-		<connection>scm:git:http://12Ozlem:Mustafa123_@github.com/12Ozlem/petClinic.git</connection>
-		<developerConnection>scm:git:http://12Ozlem:Mustafa123_@github.com/12Ozlem/petClinic.git</developerConnection>
-		<url>https://github.com/12Ozlem/petClinic.git</url>
+		<connection>scm:git:http://OzlemDoganGitHubPortfolio:Mustafa123_@github.com/12Ozlem/petClinic.git</connection>
+		<developerConnection>scm:git:http://OzlemDoganGitHubPortfolio:Mustafa123_@github.com/12Ozlem/petClinic.git</developerConnection>
+		<url>https://github.com/OzlemDoganGitHubPortfolio/petClinic.git</url>
 		<tag>HEAD</tag>
 	</scm>
 </project>
