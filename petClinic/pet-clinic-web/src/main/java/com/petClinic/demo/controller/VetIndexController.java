@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.petClinic.demo.service.VetService;
 
 @Controller
-@RequestMapping("vets")
+@RequestMapping({"vets", "vets.html"})
 public class VetIndexController {
 	
 	
@@ -21,10 +21,22 @@ public class VetIndexController {
 	}
 
 
-	@RequestMapping({"","/","/index","/index.html"})
+	@RequestMapping({"","/","/index","/index.html", "/vets.html"})
 	public String vetIndex(Model theModel) {
 		theModel.addAttribute("vets", vetService.findAll());
 		return "vets/index";
 	}
+	
+	@RequestMapping("/find")
+    public String find(){
+
+        return "notImplemented";
+    }
+	
+	@RequestMapping("/oups")
+    public String oupsHandler(){
+
+        return "notImplemented";
+    }
 
 }
