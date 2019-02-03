@@ -1,15 +1,33 @@
 package com.petClinic.demo.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Table(name="Pet")
 public class Pet extends BaseEntity{
 	
+	@Column(name="birth_date")
 	private LocalDate birthDate;
 	
+	@ManyToOne
+	@JoinColumn(name="type_id")
 	private PetType petType;
 	
+	@ManyToOne
+	@JoinColumn(name="owner_id")
 	private Owner owner;
 	
+	@OneToMany(mappedBy="pet")
+	private Set <Visit> visit = new HashSet<Visit>();
+	
+	@Column(name="name")
 	private String name;
 
 	public Pet() {
