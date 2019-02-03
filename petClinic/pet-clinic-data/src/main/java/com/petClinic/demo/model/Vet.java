@@ -3,13 +3,18 @@ package com.petClinic.demo.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.OneToMany;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Table(name ="vet")
 public class Vet extends Person {
 
-	@OneToMany(mappedBy="vet")
+	@ManyToMany(fetch= FetchType.EAGER)
+	@JoinTable(name="vet_specialities", joinColumns= @JoinColumn(name="vet_id"),
+	inverseJoinColumns=@JoinColumn(name="speciality_id"))
 	Set <Speciality> spec = new HashSet<>();
 
 	public Vet() {

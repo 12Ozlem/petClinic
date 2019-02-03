@@ -24,8 +24,7 @@ public class Owner extends Person {
 	
 	public Owner() {
 	}
-		
-	
+			
 	public Owner(Set<Pet> pets, String address, String city, String telephone) {
 		this.pets = pets;
 		this.address = address;
