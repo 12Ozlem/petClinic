@@ -4,13 +4,15 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
-@Table(name="Pet")
+@Table(name="pet")
 public class Pet extends BaseEntity{
 	
 	@Column(name="birth_date")
@@ -24,9 +26,10 @@ public class Pet extends BaseEntity{
 	@JoinColumn(name="owner_id")
 	private Owner owner;
 	
-	@OneToMany(mappedBy="pet")
+	@OneToMany(cascade= CascadeType.ALL, mappedBy="pet")
 	private Set <Visit> visit = new HashSet<Visit>();
 	
+	@NotEmpty
 	@Column(name="name")
 	private String name;
 
@@ -77,6 +80,15 @@ public class Pet extends BaseEntity{
 	public String toString() {
 		return "Pet [birthDate=" + birthDate + ", owner=" + owner + "]";
 	}
+
+	public Set<Visit> getVisit() {
+		return visit;
+	}
+
+	public void setVisit(Set<Visit> visit) {
+		this.visit = visit;
+	}
 		
+	
 
 }

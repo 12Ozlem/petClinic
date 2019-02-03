@@ -9,7 +9,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-@Table(name ="vet")
+@Table(name ="vets")
 public class Vet extends Person {
 
 	@ManyToMany(fetch= FetchType.EAGER)

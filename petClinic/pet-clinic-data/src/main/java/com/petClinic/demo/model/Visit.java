@@ -3,29 +3,33 @@ package com.petClinic.demo.model;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
-@Table(name="visit")
+@Table(name="visits")
 public class Visit extends BaseEntity{
 	
+	@NotEmpty
 	@Column(name="date")
 	private LocalDate date;
 	
+	@NotEmpty
 	@Column(name="description")
 	private String description;
 	
 	@ManyToOne
+	@JoinColumn(name="pet_id")
 	private Pet pet;
 
 	public Visit() {
 	}
 
-	public Visit(LocalDate date, String description, Pet pet) {
+	public Visit(LocalDate date, String description) {
 		this.date = date;
 		this.description = description;
-		this.pet = pet;
 	}
 
 	public LocalDate getDate() {

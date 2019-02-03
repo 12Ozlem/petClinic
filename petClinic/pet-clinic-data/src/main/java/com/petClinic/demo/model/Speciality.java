@@ -9,10 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Table(name = "speciality")
 public class Speciality extends BaseEntity {
 	
+	@NotEmpty
 	@Column(name = "description")
 	private String description;
 	
