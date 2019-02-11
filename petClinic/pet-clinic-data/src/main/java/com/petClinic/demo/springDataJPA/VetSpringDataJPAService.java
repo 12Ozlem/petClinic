@@ -37,6 +37,7 @@ public class VetSpringDataJPAService implements VetService {
 		return vet.get();
 	}
 
+
 	@Override
 	public Set<Vet> findAll() {
 		Set <Vet> vetSet = new HashSet<Vet>();
