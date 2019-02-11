@@ -4,10 +4,15 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
 import com.petClinic.demo.model.Vet;
 import com.petClinic.demo.repositories.VetRepository;
 import com.petClinic.demo.service.VetService;
 
+@Service
+@Profile ("springdatajpa")
 public class VetSpringDataJPAService implements VetService {
 	
 	private final VetRepository vetRepository;	
