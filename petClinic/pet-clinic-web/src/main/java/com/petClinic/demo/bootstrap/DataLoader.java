@@ -1,6 +1,7 @@
 package com.petClinic.demo.bootstrap;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,13 @@ import com.petClinic.demo.model.Pet;
 import com.petClinic.demo.model.PetType;
 import com.petClinic.demo.model.Speciality;
 import com.petClinic.demo.model.Vet;
+import com.petClinic.demo.model.Visit;
 import com.petClinic.demo.service.OwnerService;
 import com.petClinic.demo.service.PetService;
 import com.petClinic.demo.service.PetTypeService;
 import com.petClinic.demo.service.SpecialitiesService;
 import com.petClinic.demo.service.VetService;
+import com.petClinic.demo.service.VisitService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -26,6 +29,7 @@ public class DataLoader implements CommandLineRunner {
 	private final PetTypeService petTypeServiceB;
 	private final SpecialitiesService specialitiesServiceB;
 	private final PetService petServiceB;
+	private final VisitService visitServiceB;
 	
 	Logger logger = Logger.getLogger(DataLoader.class.getName());
 
@@ -36,12 +40,13 @@ public class DataLoader implements CommandLineRunner {
 	 */
 	@Autowired
 	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-			SpecialitiesService specialitiesService, PetService petService) {
+			SpecialitiesService specialitiesService, PetService petService, VisitService visitService) {
 		this.ownerServiceB = ownerService;
 		this.vetServiceB = vetService;
 		this.petTypeServiceB = petTypeService;
 		this.specialitiesServiceB = specialitiesService;
 		this.petServiceB = petService;
+		this.visitServiceB = visitService;
 	}
 
 	@Override
@@ -114,6 +119,10 @@ public class DataLoader implements CommandLineRunner {
 		fiona.getPets().add(savedFionasPet);
 
 		ownerServiceB.save(fiona);
+		
+		Visit catVisit = new Visit(LocalDate.now(), "cat Visit");
+		catVisit.setPet(fionasPet);
+		visitServiceB.save(catVisit);
 
 		Vet emre = new Vet();
 		emre.setFirstName("Emre");
