@@ -16,7 +16,7 @@ public class VetIndexController {
 	private final VetService vetService;
 	
 	@Autowired
-	public VetIndexController(@Qualifier("vetServiceMap")VetService vetService) {
+	public VetIndexController(VetService vetService) {
 		this.vetService = vetService;
 	}
 

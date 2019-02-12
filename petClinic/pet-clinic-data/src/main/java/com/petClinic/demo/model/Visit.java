@@ -10,11 +10,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="visits")
+@NoArgsConstructor
 public class Visit extends BaseEntity{
 	
-	@NotEmpty
+	//@NotEmpty
 	@Column(name="date")
 	private LocalDate date;
 	
@@ -27,11 +30,18 @@ public class Visit extends BaseEntity{
 	private Pet pet;
 
 	public Visit() {
+		super();
 	}
 
-	public Visit(LocalDate date, String description) {
+	public Visit(Long id, LocalDate date, String description) {
+		super(id);
 		this.date = date;
 		this.description = description;
+	}
+
+	public Visit(LocalDate now, String string) {
+		this.date = now;
+		this.description = string;
 	}
 
 	public LocalDate getDate() {

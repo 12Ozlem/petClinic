@@ -15,7 +15,7 @@ public class OwnerIndexController {
 	private final OwnerService ownerService;	
 	
 	@Autowired
-	public OwnerIndexController(@Qualifier("ownerServiceMap")OwnerService ownerService) {
+	public OwnerIndexController(OwnerService ownerService) {
 		this.ownerService = ownerService;
 	}
 

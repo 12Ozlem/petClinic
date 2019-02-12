@@ -8,21 +8,32 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.NoArgsConstructor;
 @Entity
 @Table(name ="types") 
+@NoArgsConstructor
 public class PetType extends BaseEntity{
 
 	@Column(name ="name")
 	private String name;
 	
 	@OneToMany(mappedBy="petType")
-	private Set <Pet> pets = new HashSet();
+	private Set <Pet> pets = new HashSet<Pet>();
 
+	
 	public PetType() {
+		super();
 	}
 
-	public PetType(String name) {
+	public PetType(Long id, String name, Set<Pet> pets) {
+		super(id);
 		this.name = name;
+		
+		if (pets == null)
+		{
+			this.pets = pets;
+		}
 	}
 
 	public String getName() {

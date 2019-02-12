@@ -12,8 +12,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "speciality")
+@NoArgsConstructor
 public class Speciality extends BaseEntity {
 	
 	@NotEmpty
@@ -23,13 +26,19 @@ public class Speciality extends BaseEntity {
 	@ManyToMany(fetch= FetchType.EAGER)
 	@JoinTable(name="vet_specialities", joinColumns= @JoinColumn(name="speciality_id"),
 	inverseJoinColumns=@JoinColumn(name="vet_id"))
-	Set <Vet> vet = new HashSet<Vet>();
+	Set <Vet> vets = new HashSet<Vet>();
 
 	public Speciality() {
+		super();
 	}
 
-	public Speciality(String description) {
+	public Speciality(Long id, String description, Set<Vet> vets) {
+		super(id);
 		this.description = description;
+		if(vets == null)
+		{
+			this.vets = vets;
+		}
 	}
 
 	public String getDescription() {
@@ -39,11 +48,13 @@ public class Speciality extends BaseEntity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
-	
-	
-	
+
+	public Set<Vet> getVets() {
+		return vets;
+	}
+
+	public void setVets(Set<Vet> vets) {
+		this.vets = vets;
+	}
 
 }

@@ -13,8 +13,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="pet")
+@NoArgsConstructor
 public class Pet extends BaseEntity{
 	
 	@Column(name="birth_date")
@@ -29,21 +32,30 @@ public class Pet extends BaseEntity{
 	private Owner owner;
 	
 	@OneToMany(cascade= CascadeType.ALL, mappedBy="pet")
-	private Set <Visit> visit = new HashSet<Visit>();
+	private Set <Visit> visits = new HashSet<Visit>();
 	
 	@NotEmpty
 	@Column(name="name")
 	private String name;
 
+	
 	public Pet() {
-
+		super();
 	}
 
-	public Pet(LocalDate birthDate, PetType petType, Owner owner, String name) {
+	public Pet(Long id, LocalDate birthDate, PetType petType, Owner owner, String name,
+			Set<Visit> visits) {
+		super(id);
 		this.birthDate = birthDate;
 		this.petType = petType;
 		this.owner = owner;
 		this.name = name;
+		
+		if (visits == null)
+		{
+			this.visits = visits;
+		}
+		
 	}
 
 	public LocalDate getBirthDate() {
@@ -84,11 +96,11 @@ public class Pet extends BaseEntity{
 	}
 
 	public Set<Visit> getVisit() {
-		return visit;
+		return visits;
 	}
 
-	public void setVisit(Set<Visit> visit) {
-		this.visit = visit;
+	public void setVisit(Set<Visit> visits) {
+		this.visits = visits;
 	}
 		
 	

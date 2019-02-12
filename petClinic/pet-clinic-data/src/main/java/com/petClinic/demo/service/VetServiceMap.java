@@ -5,6 +5,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.petClinic.demo.model.Speciality;
@@ -12,6 +13,7 @@ import com.petClinic.demo.model.Vet;
 
 @Service
 @Qualifier("vetServiceMap")
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 	
 	private final SpecialitiesService specService;

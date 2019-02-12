@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.petClinic.demo.model.Owner;
@@ -12,6 +13,7 @@ import com.petClinic.demo.model.Pet;
 
 @Service
 @Qualifier("ownerServiceMap")
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
 	
 	Logger logger = Logger.getLogger(OwnerServiceMap.class.getName());

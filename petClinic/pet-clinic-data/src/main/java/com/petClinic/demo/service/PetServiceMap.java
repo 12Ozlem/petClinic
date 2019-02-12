@@ -4,11 +4,13 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.petClinic.demo.model.Pet;
 @Service
 @Qualifier("petServiceMap")
+@Profile({"default", "map"})
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 	
 	Logger logger = Logger.getLogger(PetServiceMap.class.getName());

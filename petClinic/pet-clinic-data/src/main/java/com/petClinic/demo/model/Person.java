@@ -3,7 +3,10 @@ package com.petClinic.demo.model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import lombok.NoArgsConstructor;
+
 @MappedSuperclass
+@NoArgsConstructor
 public class Person extends BaseEntity{
 	
 	@Column(name = "first_name")
@@ -11,11 +14,13 @@ public class Person extends BaseEntity{
 	@Column(name = "last_name")
 	private String lastName;
 	
-	public Person() {
-
-	}
 	
-	public Person(String firstName, String lastName) {
+	public Person() {
+		super();
+	}
+
+	public Person(Long id, String firstName, String lastName) {
+		super(id);
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
