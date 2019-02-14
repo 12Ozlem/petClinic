@@ -10,11 +10,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table (name="owners")
 @NoArgsConstructor
+@Data
 public class Owner extends Person {
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy= "owner")
@@ -27,14 +29,11 @@ public class Owner extends Person {
 	private String city;
 	@Column(name  = "telephone")
 	private String telephone;
-	
-	
-	public Owner() {
+
+	public Owner()
+	{
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public Owner(Long id, String address, String city, String telephone, Set<Pet> pets, String firstName,
 			String lastName) {
