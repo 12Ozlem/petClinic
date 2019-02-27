@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -35,6 +36,7 @@ public class Owner extends Person {
 		super();
 	}
 
+	@Builder
 	public Owner(Long id, String address, String city, String telephone, Set<Pet> pets, String firstName,
 			String lastName) {
 		super(id, firstName, lastName);
