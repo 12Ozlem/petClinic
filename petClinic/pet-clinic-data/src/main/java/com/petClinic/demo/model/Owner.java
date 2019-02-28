@@ -31,10 +31,6 @@ public class Owner extends Person {
 	@Column(name  = "telephone")
 	private String telephone;
 
-	public Owner()
-	{
-		super();
-	}
 
 	@Builder
 	public Owner(Long id, String address, String city, String telephone, Set<Pet> pets, String firstName,

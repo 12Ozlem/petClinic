@@ -39,9 +39,7 @@ public class Pet extends BaseEntity{
 	private String name;
 
 	
-	public Pet() {
-		super();
-	}
+
 
 	public Pet(Long id, LocalDate birthDate, PetType petType, Owner owner, String name,
 			Set<Visit> visits) {

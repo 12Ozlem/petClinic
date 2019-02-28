@@ -22,9 +22,7 @@ public class Vet extends Person {
 	inverseJoinColumns=@JoinColumn(name="speciality_id"))
 	Set <Speciality> spec = new HashSet<Speciality>();
 	
-	public Vet() {
-		super();
-	}
+
 
 	public Vet(Long id, String firstName, String lastName, Set<Speciality> spec) {
 		super(id, firstName,lastName);

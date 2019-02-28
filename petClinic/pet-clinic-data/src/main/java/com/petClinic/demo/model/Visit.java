@@ -29,9 +29,7 @@ public class Visit extends BaseEntity{
 	@JoinColumn(name="pet_id")
 	private Pet pet;
 
-	public Visit() {
-		super();
-	}
+
 
 	public Visit(Long id, LocalDate date, String description) {
 		super(id);

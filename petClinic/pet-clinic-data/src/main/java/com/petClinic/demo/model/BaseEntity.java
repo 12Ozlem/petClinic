@@ -10,7 +10,6 @@ import javax.persistence.MappedSuperclass;
 import lombok.NoArgsConstructor;
 
 @MappedSuperclass
-@NoArgsConstructor
 public class BaseEntity implements Serializable {
 
 	@Id

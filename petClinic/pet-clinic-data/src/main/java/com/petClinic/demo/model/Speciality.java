@@ -28,9 +28,7 @@ public class Speciality extends BaseEntity {
 	inverseJoinColumns=@JoinColumn(name="vet_id"))
 	Set <Vet> vets = new HashSet<Vet>();
 
-	public Speciality() {
-		super();
-	}
+
 
 	public Speciality(Long id, String description, Set<Vet> vets) {
 		super(id);

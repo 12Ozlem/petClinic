@@ -22,9 +22,7 @@ public class PetType extends BaseEntity{
 	private Set <Pet> pets = new HashSet<Pet>();
 
 	
-	public PetType() {
-		super();
-	}
+
 
 	public PetType(Long id, String name, Set<Pet> pets) {
 		super(id);
