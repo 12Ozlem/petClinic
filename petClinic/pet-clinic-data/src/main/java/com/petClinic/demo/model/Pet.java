@@ -20,6 +20,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Pet extends BaseEntity{
 	
+	public Pet() {
+		super();
+	}
+
 	@Column(name="birth_date")
 	private LocalDate birthDate;
 	

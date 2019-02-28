@@ -24,6 +24,10 @@ public class Vet extends Person {
 	
 
 
+	public Vet() {
+		super();
+	}
+
 	public Vet(Long id, String firstName, String lastName, Set<Speciality> spec) {
 		super(id, firstName,lastName);
 		if (spec == null)

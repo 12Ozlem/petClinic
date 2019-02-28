@@ -31,6 +31,20 @@ public class Owner extends Person {
 	@Column(name  = "telephone")
 	private String telephone;
 
+	
+
+	public Owner() {
+		super();
+	}
+
+
+
+	public Owner(Long id, String firstName, String lastName) {
+		super(id, firstName, lastName);
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	@Builder
 	public Owner(Long id, String address, String city, String telephone, Set<Pet> pets, String firstName,

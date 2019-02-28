@@ -17,6 +17,12 @@ public class Person extends BaseEntity{
 	
 
 
+	public Person() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Person(Long id, String firstName, String lastName) {
 		super(id);
 		this.firstName = firstName;

@@ -30,6 +30,10 @@ public class Speciality extends BaseEntity {
 
 
 
+	public Speciality() {
+		super();
+	}
+
 	public Speciality(Long id, String description, Set<Vet> vets) {
 		super(id);
 		this.description = description;

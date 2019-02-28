@@ -31,6 +31,10 @@ public class Visit extends BaseEntity{
 
 
 
+	public Visit() {
+		super();
+	}
+
 	public Visit(Long id, LocalDate date, String description) {
 		super(id);
 		this.date = date;
