@@ -5,7 +5,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/petClinic
+    working_directory: ~/repo/petClinic
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - checkout:
-          path: ~/petClinic
+          path: ~/repo/petClinic
       - run:
 
               name: Run start command in petClinic folder
