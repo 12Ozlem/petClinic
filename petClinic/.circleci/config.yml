@@ -22,6 +22,14 @@ jobs:
     steps:
       - checkout:
           path: ~/petClinic
+      - run:
+
+              name: Run start command in petClinic folder
+              command: npm --prefix ./petClinic run start
+      # then in same file
+      - run:
+              name: Run test command in app folder
+              command: npm --prefix ./petClinic run test
 
       # Download and cache dependencies
       - restore_cache:
