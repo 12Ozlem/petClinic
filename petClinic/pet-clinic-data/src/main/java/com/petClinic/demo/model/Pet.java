@@ -17,12 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="pet")
-@NoArgsConstructor
 public class Pet extends BaseEntity{
-	
-	public Pet() {
-		super();
-	}
 
 	@Column(name="birth_date")
 	private LocalDate birthDate;
@@ -43,7 +38,13 @@ public class Pet extends BaseEntity{
 	private String name;
 
 	
+	
+public Pet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
+	/*
 
 	public Pet(Long id, LocalDate birthDate, PetType petType, Owner owner, String name,
 			Set<Visit> visits) {
@@ -59,7 +60,7 @@ public class Pet extends BaseEntity{
 		}
 		
 	}
-
+*/
 	public LocalDate getBirthDate() {
 		return birthDate;
 	}

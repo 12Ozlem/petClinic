@@ -6,7 +6,6 @@ import javax.persistence.MappedSuperclass;
 import lombok.NoArgsConstructor;
 
 @MappedSuperclass
-@NoArgsConstructor
 public class Person extends BaseEntity{
 	
 	@Column(name = "first_name")
@@ -14,12 +13,9 @@ public class Person extends BaseEntity{
 	@Column(name = "last_name")
 	private String lastName;
 	
-	
 
 
 	public Person() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 

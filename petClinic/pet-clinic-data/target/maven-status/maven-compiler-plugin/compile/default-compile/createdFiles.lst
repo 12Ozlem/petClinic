@@ -5,7 +5,6 @@ com/petClinic/demo/repositories/SpecialityRepository.class
 com/petClinic/demo/model/Pet.class
 com/petClinic/demo/service/VisitServiceMap.class
 com/petClinic/demo/repositories/OwnerRepository.class
-com/petClinic/demo/model/Owner$OwnerBuilder.class
 com/petClinic/demo/springDataJPA/PetSpringDataJPAService.class
 com/petClinic/demo/model/BaseEntity.class
 com/petClinic/demo/model/PetType.class

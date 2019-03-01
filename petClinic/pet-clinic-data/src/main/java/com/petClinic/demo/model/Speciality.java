@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "speciality")
-@NoArgsConstructor
 public class Speciality extends BaseEntity {
 	
 	@NotEmpty
@@ -28,12 +27,11 @@ public class Speciality extends BaseEntity {
 	inverseJoinColumns=@JoinColumn(name="vet_id"))
 	Set <Vet> vets = new HashSet<Vet>();
 
-
-
-	public Speciality() {
-		super();
+	
+public Speciality() {
 	}
 
+	/*
 	public Speciality(Long id, String description, Set<Vet> vets) {
 		super(id);
 		this.description = description;
@@ -42,7 +40,7 @@ public class Speciality extends BaseEntity {
 			this.vets = vets;
 		}
 	}
-
+*/
 	public String getDescription() {
 		return description;
 	}

@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name ="vets")
-@NoArgsConstructor
 public class Vet extends Person {
 
 	@ManyToMany(fetch= FetchType.EAGER)
@@ -22,12 +21,13 @@ public class Vet extends Person {
 	inverseJoinColumns=@JoinColumn(name="speciality_id"))
 	Set <Speciality> spec = new HashSet<Speciality>();
 	
-
-
+	
+	
 	public Vet() {
-		super();
+
 	}
 
+	/*
 	public Vet(Long id, String firstName, String lastName, Set<Speciality> spec) {
 		super(id, firstName,lastName);
 		if (spec == null)
@@ -35,7 +35,7 @@ public class Vet extends Person {
 			this.spec = spec;
 		}	
 	}
-
+*/
 	public Set<Speciality> getSpec() {
 		return spec;
 	}

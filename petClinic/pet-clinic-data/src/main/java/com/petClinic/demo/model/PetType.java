@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import lombok.NoArgsConstructor;
 @Entity
 @Table(name ="types") 
-@NoArgsConstructor
 public class PetType extends BaseEntity{
 
 	@Column(name ="name")
@@ -22,12 +21,10 @@ public class PetType extends BaseEntity{
 	private Set <Pet> pets = new HashSet<Pet>();
 
 	
-
-
-	public PetType() {
-		super();
+public PetType() {
 	}
 
+	/*
 	public PetType(Long id, String name, Set<Pet> pets) {
 		super(id);
 		this.name = name;
@@ -37,7 +34,7 @@ public class PetType extends BaseEntity{
 			this.pets = pets;
 		}
 	}
-
+*/
 	public String getName() {
 		return name;
 	}

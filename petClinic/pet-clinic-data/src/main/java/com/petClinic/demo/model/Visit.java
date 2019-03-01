@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="visits")
-@NoArgsConstructor
 public class Visit extends BaseEntity{
 	
 	//@NotEmpty
@@ -28,19 +27,20 @@ public class Visit extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name="pet_id")
 	private Pet pet;
-
-
+	
+	
 
 	public Visit() {
-		super();
+
 	}
 
+	/*
 	public Visit(Long id, LocalDate date, String description) {
 		super(id);
 		this.date = date;
 		this.description = description;
 	}
-
+*/
 	public Visit(LocalDate now, String string) {
 		this.date = now;
 		this.description = string;
