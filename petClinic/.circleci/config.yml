@@ -23,20 +23,21 @@ jobs:
     steps:
       - checkout:
            path: ~/petClinic
+      - run: cd petClinic/; ls -la; pwd;
 
-      # Download and cache dependencies
+     # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+          - petClinic-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - petClinic-
 
-      - run: mvn dependency:go-offline
+      - run: cd petClinic; mvn dependency:go-offline
 
       - save_cache:
           paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+            - ~/petClinic/.m2
+          key: petClinic-{{ checksum "pom.xml" }}
 
       # run tests!
       - run: mvn integration-test
